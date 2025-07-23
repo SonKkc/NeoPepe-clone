@@ -128,7 +128,7 @@ h6 {
   @apply mb-[10px] text-body;
 }
 .footer__content-item-link {
-  @apply text-[16px] text-heading outline-0;
+  @apply text-[16px] text-heading outline-0 hover:text-primary;
 }
 .footer__divider {
   @apply border-t border-[#222] mt-10;
@@ -176,7 +176,7 @@ h6 {
   }
 }
 .navbar__menu {
-  @apply ms-[80px] hidden h-full;
+  @apply hidden h-full;
 }
 @media (min-width: 1200px) {
   .navbar__menu {
@@ -184,10 +184,15 @@ h6 {
   }
 }
 .navbar__menu-list {
-  @apply flex items-center h-full justify-center gap-8;
+  @apply flex items-center h-full justify-center gap-8 ms-[80px] relative;
+}
+.navbar__menu-list::after {
+  content: "";
+  @apply absolute top-1/2 left-[-40px] w-[2px] h-[30px] -translate-y-1/2;
+  background: var(--color-dark);
 }
 .navbar__menu-link {
-  @apply font-spacegrotesk text-base font-semibold text-[#e6fff0] hover:text-[#39FF14] transition h-full flex flex-col justify-center;
+  @apply font-spacegrotesk text-base font-semibold text-[#e6fff0] hover:text-primary transition h-full flex flex-col justify-center;
 }
 .navbar__spacer {
   @apply flex-1;
@@ -230,7 +235,7 @@ h6 {
   @apply ml-2 px-3 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer bg-dark text-heading;
 }
 .navbar__actions-lang-flag {
-  @apply w-5 h-5 rounded-full object-cover;
+  @apply w-5 h-5 rounded-full object-cover select-none;
 }
 .navbar__actions-lang-text {
   @apply text-[14px] leading-[1.5] select-none;
@@ -239,7 +244,7 @@ h6 {
   @apply w-4 h-4 text-[#b4cfc2];
 }
 .navbar__actions .language-switcher {
-  @apply relative inline-block text-left z-50;
+  @apply relative inline-block text-left z-50 cursor-pointer;
 }
 .navbar__actions .language-switcher .dropdown-menu {
   @apply absolute right-0 rounded-lg w-[222px] border-2 border-[#6b807c1a] bg-dark p-[10px] mt-0 select-none;

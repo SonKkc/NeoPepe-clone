@@ -113,7 +113,7 @@
         &-item {
             @apply mb-[10px] text-body;
             &-link {
-                @apply text-[16px] text-heading outline-0;
+                @apply text-[16px] text-heading outline-0 hover:text-primary;
             }
         }
     }

@@ -2,18 +2,18 @@
 
 .navbar {
     @apply bg-[#060909] w-full px-[12px] transition-all ease-in-out duration-300;
-    @media (min-width : 1400px){
+    @media (min-width: 1400px) {
         @apply px-[50px];
     }
 
     &__container {
         @apply max-w-[1700px] mx-auto h-[95px] flex items-center;
 
-        @media only screen and (max-width: 1199px){
+        @media only screen and (max-width: 1199px) {
             @apply py-[10px];
         }
 
-         @media only screen and (max-width: 1399px){
+        @media only screen and (max-width: 1399px) {
             @apply h-auto;
         }
     }
@@ -28,18 +28,24 @@
         }
     }
     &__menu {
-        @apply ms-[80px] hidden h-full;
+        @apply hidden h-full;
         @media (min-width: 1200px) {
             @apply block;
         }
 
         &-list {
-            @apply flex items-center h-full justify-center gap-8;
+            @apply flex items-center h-full justify-center gap-8 ms-[80px] relative;
+
+            &::after {
+                content: "";
+                @apply absolute top-1/2 left-[-40px] w-[2px] h-[30px] -translate-y-1/2;
+                background: var(--color-dark);
+            }
         }
         &-item {
         }
         &-link {
-            @apply font-spacegrotesk text-base font-semibold text-[#e6fff0] hover:text-[#39FF14] transition h-full flex flex-col justify-center;
+            @apply font-spacegrotesk text-base font-semibold text-[#e6fff0] hover:text-primary transition h-full flex flex-col justify-center;
         }
     }
     &__spacer {
@@ -83,7 +89,7 @@
         &-lang {
             @apply ml-2 px-3 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer bg-dark text-heading;
             &-flag {
-                @apply w-5 h-5 rounded-full object-cover;
+                @apply w-5 h-5 rounded-full object-cover select-none;
             }
             &-text {
                 @apply text-[14px] leading-[1.5] select-none;
@@ -94,7 +100,7 @@
         }
 
         .language-switcher {
-            @apply relative inline-block text-left z-50;
+            @apply relative inline-block text-left z-50 cursor-pointer;
 
             .dropdown-menu {
                 @apply absolute right-0 rounded-lg w-[222px] border-2 border-[#6b807c1a] bg-dark p-[10px] mt-0 select-none;
@@ -205,7 +211,7 @@
             }
         }
 
-        .mobile-menu{
+        .mobile-menu {
             @apply block;
 
             @media (min-width: 1200px) {
@@ -217,14 +223,14 @@
         @apply fixed top-0 left-0 h-full w-[400px] py-[60px] px-[50px] bg-dark transition-transform duration-300 ease-in-out z-[60] overflow-y-auto;
         transform: translateX(-100%);
 
-        @media only screen and (max-width: 575px){
+        @media only screen and (max-width: 575px) {
             @apply w-[300px] py-[30px] px-[20px];
         }
 
-        @media only screen and (max-width: 767px){
+        @media only screen and (max-width: 767px) {
             @apply p-[30px];
         }
-        
+
         &.active {
             transform: translateX(0);
         }
@@ -258,7 +264,7 @@
 
             a {
                 @apply py-[14px] block text-[16px] font-medium h-auto leading-[1.4];
-                border-top: 1px solid rgba(from var(--color-white) r g b/.1)
+                border-top: 1px solid rgba(from var(--color-white) r g b/.1);
             }
 
             li:first-child a {
@@ -314,7 +320,7 @@
     }
 
     &__mobile-overlay {
-        background-color: rgba(0,0,0,.5);
+        background-color: rgba(0, 0, 0, 0.5);
     }
 }
 
