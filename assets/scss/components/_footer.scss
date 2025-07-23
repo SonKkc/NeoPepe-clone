@@ -3,23 +3,53 @@
 .footer {
     @apply bg-black text-white pt-[50px];
     &__container {
-        @apply max-w-[1320px] mx-auto px-4;
+        @apply w-full mx-auto px-4;
+
+        @media (min-width: 576px) {
+            @apply max-w-[540px];
+        }
+
+        @media (min-width: 768px) {
+            @apply max-w-[720px];
+        }
+
+        @media (min-width: 992px){
+            @apply max-w-[960px];
+        }
+
+        @media (min-width: 1200px) {
+            @apply max-w-[1140px];
+        }
+
+        @media (min-width: 1400px) {
+            @apply max-w-[1320px];
+        }
     }
     &__grid {
-        @apply grid grid-cols-2 gap-[60px];
+        @apply flex flex-row gap-[60px] items-start;
+
+        @media (max-width: 991px) {
+            @apply flex-col;
+        }
+
+        @media (max-width: 1199px) {
+            @apply gap-[30px];
+        }
     }
     &__illustration {
-        @apply w-full flex justify-center md:justify-start max-w-full;
+        @apply w-1/2 flex justify-center md:justify-start max-w-full;
+
+        @media (max-width: 992px){
+            @apply w-full;
+        }
+
         &-img {
-            @apply w-full h-auto object-contain;
+            @apply max-w-full h-auto object-contain;
         }
     }
 
     &-background-title {
-        @apply font-departure;
-        font-weight: 400;
-        font-size: 120px;
-        line-height: 1;
+        @apply font-departure font-normal text-[120px] leading-none select-none mb-[-40px];
         background: linear-gradient(
             180deg,
             var(--color-dark) 20%,
@@ -27,14 +57,38 @@
         );
         -webkit-text-fill-color: rgba(0, 0, 0, 0);
         background-clip: text;
-        margin-bottom: -40px;
-        user-select: none;
+
+        @media only screen and (max-width: 1399px) {
+            @apply text-[100px];
+        }
+
+        @media only screen and (max-width: 1199px) {
+            @apply text-[80px];
+        }
+
+        @media only screen and (max-width: 575px) {
+            @apply text-[55px] mb-[-10px];
+        }
     }
     &__content {
-        @apply relative;
+        @apply relative w-full;
+
+         @media (min-width: 992px){
+            @apply w-1/2;
+        }
 
         &-links {
-            @apply flex gap-x-[35px] gap-y-[100px] flex-wrap;
+            @apply flex gap-y-[35px] gap-x-[100px] flex-wrap;
+
+            @media only screen and (max-width: 991px) {
+                @apply gap-y-[35px] gap-x-[80px];
+                justify-content: start;
+            }
+
+            @media only screen and (max-width: 767px) {
+                @apply gap-y-[35px] gap-x-[60px];
+                justify-content: start;
+            }
         }
         &-block {
             // No extra styles needed

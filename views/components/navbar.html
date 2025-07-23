@@ -4,7 +4,9 @@
     <div class="navbar__container">
         <!-- Logo & Brand -->
         <div class="navbar__brand">
-            <img src="{{'images/logo.gif' | asset_url }}" alt="Logo" class="navbar__brand-logo" />
+            <a href="/" class="">
+                <img src="{{'images/logo.gif' | asset_url }}" alt="Logo" class="navbar__brand-logo" />
+            </a>
         </div>
         <!-- Main Menu -->
         <nav class="navbar__menu">
@@ -16,27 +18,27 @@
                 </li>
                 <li class="navbar__menu-item">
                     <a class="navbar__menu-link" href="/">
-                         {% include 'elements/coded-text.html', text: 'Whitepaper' %}
+                        {% include 'elements/coded-text.html', text: 'Whitepaper' %}
                     </a>
                 </li>
                 <li class="navbar__menu-item">
                     <a class="navbar__menu-link" href="/">
-                         {% include 'elements/coded-text.html', text: 'Tokenomics' %}
+                        {% include 'elements/coded-text.html', text: 'Tokenomics' %}
                     </a>
                 </li>
                 <li class="navbar__menu-item">
                     <a class="navbar__menu-link" href="/">
-                         {% include 'elements/coded-text.html', text: 'Docs' %}
+                        {% include 'elements/coded-text.html', text: 'Docs' %}
                     </a>
                 </li>
                 <li class="navbar__menu-item">
                     <a class="navbar__menu-link" href="/">
-                         {% include 'elements/coded-text.html', text: 'Giveaway' %}
+                        {% include 'elements/coded-text.html', text: 'Giveaway' %}
                     </a>
                 </li>
                 <li class="navbar__menu-item">
                     <a class="navbar__menu-link" href="/">
-                         {% include 'elements/coded-text.html', text: 'FAQ' %}
+                        {% include 'elements/coded-text.html', text: 'FAQ' %}
                     </a>
                 </li>
             </ul>
@@ -86,8 +88,7 @@
                     </svg>
                 </div>
                 <!-- Dropdown chọn ngôn ngữ -->
-                <div id="langDropdown"
-                    class="dropdown-menu">
+                <div id="langDropdown" class="dropdown-menu hidden">
                     <!-- Danh sách ngôn ngữ -->
                     <ul class="language-list">
                         <li>
@@ -152,9 +153,131 @@
                 </svg>
                 {% include 'elements/coded-text.html', text: 'Connect Wallet' %}
             </button>
+
+            <!--mobile menu-->
+            <div class="mobile-menu">
+                <button id="mobileMenuBtn"
+                    class="border-0 text-main-bg flex font-[18px] items-center justify-center bg-primary rounded-full w-[40px] h-[40px] p-[4px]">
+                    <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="bars"
+                        class="w-[18px] h-[18px]" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                        <path fill="currentColor"
+                            d="M0 88C0 74.7 10.7 64 24 64l400 0c13.3 0 24 10.7 24 24s-10.7 24-24 24L24 112C10.7 112 0 101.3 0 88zM0 248c0-13.3 10.7-24 24-24l400 0c13.3 0 24 10.7 24 24s-10.7 24-24 24L24 272c-13.3 0-24-10.7-24-24zM448 408c0 13.3-10.7 24-24 24L24 432c-13.3 0-24-10.7-24-24s10.7-24 24-24l400 0c13.3 0 24 10.7 24 24z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
         </div>
     </div>
 </header>
+
+<!-- Mobile Sidebar Menu -->
+<div id="mobileSidebar" class="navbar__mobile-sidebar">
+    <div class="navbar__mobile-sidebar-content">
+        <!--btn close-->
+        <button id="closeMobileMenu" class="navbar__mobile-sidebar-close">
+            <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="xmark" class="w-[15px] h-[20px]"
+                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                <path fill="currentColor"
+                    d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z">
+                </path>
+            </svg>
+        </button>
+        <!--logo-->
+        <a href="/" class="navbar__mobile-sidebar-logo">
+            <img src="{{'images/logo.gif' | asset_url }}" alt="Logo" />
+        </a>
+        <!--main menu-->
+        <nav class="navbar__mobile-sidebar-menu">
+            <ul>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'Presale' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'Whitepaper' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'Tokenomics' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'Docs' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'Giveaway' %}
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        {% include 'elements/coded-text.html', text: 'FAQ' %}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <!--connect wallet-->
+        <div class="navbar__mobile-sidebar-wallet">
+            <svg aria-hidden="true" focusable="false" data-prefix="far" data-icon="wallet"
+                role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"
+                width="20" height="20">
+                <path fill="currentColor"
+                    d="M88 32C39.4 32 0 71.4 0 120L0 392c0 48.6 39.4 88 88 88l336 0c48.6 0 88-39.4 88-88l0-176c0-48.6-39.4-88-88-88l-304 0c-13.3 0-24 10.7-24 24s10.7 24 24 24l304 0c22.1 0 40 17.9 40 40l0 176c0 22.1-17.9 40-40 40L88 432c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l368 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 32zM384 336a32 32 0 1 0 0-64 32 32 0 1 0 0 64z">
+                </path>
+            </svg>
+            {% include 'elements/coded-text.html', text: 'Connect Wallet' %}
+        </div>
+
+        <!--social media-->
+        <ul class="navbar__mobile-sidebar-social">
+            <li>
+                <a href="#">
+                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="telegram" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512">
+                        <path fill="currentColor"
+                            d="M248,8C111.033,8,0,119.033,0,256S111.033,504,248,504,496,392.967,496,256,384.967,8,248,8ZM362.952,176.66c-3.732,39.215-19.881,134.378-28.1,178.3-3.476,18.584-10.322,24.816-16.948,25.425-14.4,1.326-25.338-9.517-39.287-18.661-21.827-14.308-34.158-23.215-55.346-37.177-24.485-16.135-8.612-25,5.342-39.5,3.652-3.793,67.107-61.51,68.335-66.746.153-.655.3-3.1-1.154-4.384s-3.59-.849-5.135-.5q-3.283.746-104.608,69.142-14.845,10.194-26.894,9.934c-8.855-.191-25.888-5.006-38.551-9.123-15.531-5.048-27.875-7.717-26.8-16.291q.84-6.7,18.45-13.7,108.446-47.248,144.628-62.3c68.872-28.647,83.183-33.623,92.511-33.789,2.052-.034,6.639.474,9.61,2.885a10.452,10.452,0,0,1,3.53,6.716A43.765,43.765,0,0,1,362.952,176.66Z">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                     <svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="x-twitter" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                        <path fill="currentColor"
+                            d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                      <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="link" role="img"
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                        <path fill="currentColor"
+                            d="M579.8 267.7c56.5-56.5 56.5-148 0-204.5c-50-50-128.8-56.5-186.3-15.4l-1.6 1.1c-14.4 10.3-17.7 30.3-7.4 44.6s30.3 17.7 44.6 7.4l1.6-1.1c32.1-22.9 76-19.3 103.8 8.6c31.5 31.5 31.5 82.5 0 114L422.3 334.8c-31.5 31.5-82.5 31.5-114 0c-27.9-27.9-31.5-71.8-8.6-103.8l1.1-1.6c10.3-14.4 6.9-34.4-7.4-44.6s-34.4-6.9-44.6 7.4l-1.1 1.6C206.5 251.2 213 330 263 380c56.5 56.5 148 56.5 204.5 0L579.8 267.7zM60.2 244.3c-56.5 56.5-56.5 148 0 204.5c50 50 128.8 56.5 186.3 15.4l1.6-1.1c14.4-10.3 17.7-30.3 7.4-44.6s-30.3-17.7-44.6-7.4l-1.6 1.1c-32.1 22.9-76 19.3-103.8-8.6C74 372 74 321 105.5 289.5L217.7 177.2c31.5-31.5 82.5-31.5 114 0c27.9 27.9 31.5 71.8 8.6 103.9l-1.1 1.6c-10.3 14.4-6.9 34.4 7.4 44.6s34.4 6.9 44.6-7.4l1.1-1.6C433.5 260.8 427 182 377 132c-56.5-56.5-148-56.5-204.5 0L60.2 244.3z">
+                        </path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+
+        <!--background img-->
+        <div class="navbar__mobile-sidebar-bg">
+            <img src="{{'images/sidebar-bg.png' | asset_url }}" alt="" />
+        </div>
+    </div>
+</div>
+
+<!-- Mobile Sidebar Overlay -->
+<div id="mobileOverlay"
+    class="navbar__mobile-overlay fixed inset-0 z-[55] opacity-0 invisible transition-all duration-300 "></div>
 
 <script>
     // Hiệu ứng mã hóa chữ cái cho toàn bộ menu
@@ -171,6 +294,33 @@
             frames.forEach(f => f.classList.add('hidden'));
         }
     });
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileSidebar = document.getElementById('mobileSidebar');
+    const mobileOverlay = document.getElementById('mobileOverlay');
+    const closeMobileMenu = document.getElementById('closeMobileMenu');
+
+    function openMobileMenu() {
+        mobileSidebar.classList.add('active');
+        mobileOverlay.classList.remove('opacity-0', 'invisible');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenuFunc() {
+        mobileSidebar.classList.remove('active');
+        mobileOverlay.classList.add('opacity-0', 'invisible');
+        document.body.style.overflow = 'auto';
+    }
+
+    mobileMenuBtn.addEventListener('click', openMobileMenu);
+    closeMobileMenu.addEventListener('click', closeMobileMenuFunc);
+    mobileOverlay.addEventListener('click', closeMobileMenuFunc);
+
+    function toggleMobileLangDropdown() {
+        const dropdown = document.getElementById('mobileLangDropdown');
+        dropdown.classList.toggle('hidden');
+    }
 
     function toggleLangDropdown() {
         const dropdown = document.getElementById('langDropdown');
