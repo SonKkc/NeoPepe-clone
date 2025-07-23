@@ -1,0 +1,78 @@
+// Footer styles using BEM and Tailwind @apply
+
+.footer {
+    @apply bg-black text-white pt-[50px];
+    &__container {
+        @apply max-w-[1320px] mx-auto px-4;
+    }
+    &__grid {
+        @apply grid grid-cols-2 gap-[60px];
+    }
+    &__illustration {
+        @apply w-full flex justify-center md:justify-start max-w-full;
+        &-img {
+            @apply w-full h-auto object-contain;
+        }
+    }
+
+    &-background-title {
+        font-family: var(--font-secondary);
+        font-weight: 400;
+        font-size: 120px;
+        line-height: 1;
+        background: linear-gradient(
+            180deg,
+            var(--color-dark) 20%,
+            var(--color-main-bg) 100%
+        );
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        background-clip: text;
+        margin-bottom: -40px;
+        user-select: none;
+    }
+    &__content {
+        @apply relative;
+
+        &-links {
+            @apply flex gap-x-[35px] gap-y-[100px] flex-wrap;
+        }
+        &-block {
+            // No extra styles needed
+        }
+        &-title {
+            @apply relative font-bold text-primary ps-[22px] mb-[20px];
+
+            &::after {
+                content: "";
+                background: url(/assets/svg/title-arrow.svg);
+                width: 10px;
+                height: 20px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
+        }
+        &-list {
+            // No extra styles needed
+        }
+        &-item {
+            @apply mb-[10px] text-body;
+            &-link {
+                @apply text-[16px] text-heading outline-0;
+            }
+        }
+    }
+    &__divider {
+        @apply border-t border-[#222] mt-10;
+    }
+    &__bottom {
+        @apply max-w-7xl mx-auto px-4 flex items-center justify-center py-4;
+        &-copyright {
+            @apply text-xs text-gray-400;
+            &-brand {
+                @apply text-primary font-semibold;
+            }
+        }
+    }
+}

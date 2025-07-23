@@ -1,0 +1,185 @@
+// Navbar styles using BEM and Tailwind @apply
+
+.navbar {
+    @apply bg-[#060909] w-full px-[50px];
+    &__container {
+        @apply max-w-[1700px] mx-auto h-[95px] flex items-center;
+    }
+    &__brand {
+        @apply flex items-center;
+        &-logo {
+            @apply w-[232px];
+        }
+    }
+    &__menu {
+        @apply ms-[80px] block h-full;
+        &-list {
+            @apply flex items-center h-full justify-center gap-8;
+        }
+        &-item {
+        }
+        &-link {
+            @apply text-base font-semibold text-[#e6fff0] hover:text-[#39FF14] transition h-full flex flex-col justify-center;
+        }
+    }
+    &__spacer {
+        @apply flex-1;
+    }
+    &__actions {
+        @apply flex items-center gap-6;
+        &-social {
+            @apply flex items-center gap-3;
+        }
+        &-iconBtn {
+            @apply h-[40px] w-[40px] rounded flex items-center justify-center transition relative;
+
+            svg {
+                @apply h-[18px] w-[18px] text-[#c8e9db];
+            }
+
+            &:after {
+                content: "";
+                @apply absolute left-0 top-0 w-full h-full transition-all duration-300 ease-in-out;
+                border: 1px solid rgba(from var(--color-primary) r g b/.4);
+                background-color: rgba(from var(--color-primary) r g b/.4);
+                visibility: hidden;
+                border-radius: 8px;
+            }
+
+            &:hover:after {
+                @apply visible;
+                animation: flash-bg-border 0.6s ease infinite;
+            }
+        }
+
+        &-lang {
+            @apply ml-2 px-3 py-2.5 rounded-lg flex items-center gap-2 cursor-pointer bg-dark text-heading;
+            &-flag {
+                @apply w-6 h-6 rounded-full object-cover;
+            }
+            &-text {
+                @apply text-[14px] leading-[1.5] select-none;
+            }
+            &-arrow {
+                @apply w-4 h-4 text-[#b4cfc2];
+            }
+        }
+
+        .language-switcher {
+            @apply relative inline-block text-left z-50;
+
+            .dropdown-menu {
+                @apply absolute right-0 rounded-lg w-[222px] border-2 border-[#6b807c1a] bg-dark p-[10px] mt-0 select-none;
+                top: 60px !important;
+
+                &::after {
+                    content: "";
+                    @apply absolute w-4 h-4 bg-dark border-2 border-[#6b807c1a] z-20;
+                    right: 5;
+                    top: -2;
+                    transform: rotate(45deg);
+                    right: 20px;
+                    top: -8px;
+                    -webkit-clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
+                    clip-path: polygon(0 0, 100% 0, 50% 50%, 0 100%);
+                }
+
+                .language-list {
+                    @apply text-heading text-[14px] z-[1] max-h-[265px] overflow-y-auto m-0 mb-0 select-none;
+                    scrollbar-width: thin;
+                    scrollbar-color: hsla(0, 0%, 100%, 0.15) rgba(0, 0, 0, 0);
+
+                    li {
+                        @apply my-[2px];
+
+                        a {
+                            @apply gap-2 items-center flex rounded-lg p-[10px] border border-transparent w-full transition-all select-none;
+
+                            &:hover {
+                                @apply outline-none border-dark text-primary;
+                                /* Không thể dùng @apply cho background linear-gradient, giữ lại thuộc tính gốc */
+                                background: linear-gradient(
+                                    196deg,
+                                    #152020 -19.03%,
+                                    #000304 184.29%
+                                );
+                            }
+
+                            &.active {
+                                @apply outline-none border-dark text-primary;
+                                background: linear-gradient(
+                                    196deg,
+                                    #152020 -19.03%,
+                                    #000304 184.29%
+                                );
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        &-walletBtn {
+            @apply relative ml-3 px-6 py-3 rounded-lg bg-primary hover:bg-[#20e002] flex items-center gap-2 font-extrabold uppercase text-main-bg text-base transition select-none;
+            &-icon {
+                @apply w-5 h-5 text-[#060909];
+            }
+
+            .frame {
+                position: absolute;
+                width: 25px;
+                height: 24px;
+                background: url(/assets/svg/btn-frame.svg);
+                transition: var(--transition-3);
+                z-index: -1;
+
+                &.frame-1 {
+                    top: -25px;
+                    left: -25px;
+                }
+
+                &.frame-2 {
+                    right: -25px;
+                    top: -25px;
+                    transform: rotate(90deg);
+                }
+
+                &.frame-3 {
+                    left: -25px;
+                    bottom: -25px;
+                    transform: rotate(-90deg);
+                }
+
+                &.frame-4 {
+                    right: -25px;
+                    bottom: -25px;
+                    transform: rotate(180deg);
+                }
+            }
+
+            &:hover {
+                .frame-1 {
+                    transform: translate(5px, 5px);
+                }
+                .frame-2 {
+                    transform: translate(-5px, 5px) rotate(90deg);
+                }
+                .frame-3 {
+                    transform: translate(5px, -5px) rotate(-90deg);
+                }
+                .frame-4 {
+                    transform: translate(-5px, -5px) rotate(180deg);
+                }
+            }
+        }
+    }
+}
+
+@keyframes flash-bg-border {
+    0% {
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
+}

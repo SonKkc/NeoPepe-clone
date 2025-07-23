@@ -1,0 +1,10 @@
+.CodedText {
+    @apply relative overflow-hidden text-left inline-flex;
+
+    &-text {
+        @apply absolute top-0 left-0;
+    }
+    &-textInvisible {
+        @apply invisible opacity-0 whitespace-pre;
+    }
+}

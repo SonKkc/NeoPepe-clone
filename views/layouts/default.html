@@ -20,12 +20,12 @@
 <body>
     {% include 'components/navbar.html' %}
 
-    <div class="main">
+    <div class="main h-[500px]">
         {% block content %}{% endblock %}
     </div>
 
     {% include 'components/footer.html' %}
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="{{ 'js/main.js' | asset_url }}" defer></script>
 </body>
 </html>
