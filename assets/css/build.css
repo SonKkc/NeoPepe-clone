@@ -28,7 +28,7 @@ h6 {
   @apply w-full h-auto object-contain;
 }
 .footer-background-title {
-  font-family: var(--font-secondary);
+  @apply font-departure;
   font-weight: 400;
   font-size: 120px;
   line-height: 1;
@@ -45,7 +45,7 @@ h6 {
   @apply flex gap-x-[35px] gap-y-[100px] flex-wrap;
 }
 .footer__content-title {
-  @apply relative font-bold text-primary ps-[22px] mb-[20px];
+  @apply relative font-bold text-primary ps-[22px] mb-[20px] font-spacegrotesk;
 }
 .footer__content-title::after {
   content: "";
@@ -95,7 +95,7 @@ h6 {
   @apply flex items-center h-full justify-center gap-8;
 }
 .navbar__menu-link {
-  @apply text-base font-semibold text-[#e6fff0] hover:text-[#39FF14] transition h-full flex flex-col justify-center;
+  @apply font-spacegrotesk text-base font-semibold text-[#e6fff0] hover:text-[#39FF14] transition h-full flex flex-col justify-center;
 }
 .navbar__spacer {
   @apply flex-1;
@@ -229,7 +229,7 @@ h6 {
   }
 }
 .CodedText {
-  @apply relative overflow-hidden text-left inline-flex;
+  @apply relative overflow-hidden text-left inline-flex font-spacegrotesk;
 }
 .CodedText-text {
   @apply absolute top-0 left-0;

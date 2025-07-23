@@ -1,10 +1,29 @@
+@font-face {
+  font-family: 'SpaceGrotesk';
+  src: url('/assets/fonts/SpaceGrotesk-VariableFont_wght.ttf') format('truetype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 :root {
   --transition-3: transform 0.85s cubic-bezier(0.23,1,0.32,1), background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
 }
+
+@font-face {
+  font-family: 'DepartureMono';
+  src: url('/assets/fonts/DepartureMono-Regular.otf') format('opentype');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
    --color-primary: #2AC615;
    --color-heading: #c8e9db;
    --color-dark: #152020;
    --color-main-bg: #000304;
    --color-body: #AED6C4;
+
+   --font-departure: "DepartureMono", sans-serif;
+   --font-spacegrotesk: "SpaceGrotesk", sans-serif;
 }

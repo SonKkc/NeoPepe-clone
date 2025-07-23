@@ -16,7 +16,7 @@
     }
 
     &-background-title {
-        font-family: var(--font-secondary);
+        @apply font-departure;
         font-weight: 400;
         font-size: 120px;
         line-height: 1;
@@ -40,7 +40,7 @@
             // No extra styles needed
         }
         &-title {
-            @apply relative font-bold text-primary ps-[22px] mb-[20px];
+            @apply relative font-bold text-primary ps-[22px] mb-[20px] font-spacegrotesk;
 
             &::after {
                 content: "";
