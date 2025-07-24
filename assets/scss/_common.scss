@@ -1,13 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=VT323&display=swap");
 
-.font-mono {
-  font-family: 'VT323', 'Fira Mono', 'Menlo', 'Monaco', 'Consolas', monospace;
+body {
+    @apply bg-main-bg text-body font-spacegrotesk h-screen;
 }
 
-h1, h2, h3, h4, h5, h6{
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     word-break: break-word;
 }
 
-h6{
+h6 {
     @apply text-[18px] leading-[1.25];
+}
+
+hr {
+    @apply border-0 h-px mb-6;
+    background-size: 4px 4px;
+}
+
+button{
+    @apply cursor-pointer;
+}
+
+.btn-primary{
+    @apply px-6 py-4 text-[10px] cursor-pointer bg-primary border-0 flex items-center gap-2 text-main-bg font-black rounded-lg uppercase relative;
+    transition: var(--transition-3);
 }
