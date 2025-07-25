@@ -6,6 +6,11 @@
         @apply px-[50px];
     }
 
+    // Fixed navbar state with shadow
+    &.fixed {
+        box-shadow: 0 15px 75px var(--color-dark);
+    }
+
     &__container {
         @apply max-w-[1700px] mx-auto h-[95px] flex items-center;
 

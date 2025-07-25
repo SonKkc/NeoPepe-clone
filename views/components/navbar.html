@@ -287,10 +287,10 @@
         const navbar = document.getElementById('mainNavbar');
         const frames = document.querySelectorAll('.frame');
         if (window.scrollY > 0) {
-            navbar.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'shadow-lg');
+            navbar.classList.add('fixed', 'top-0', 'left-0', 'w-full', 'z-50');
             frames.forEach(f => f.classList.remove('hidden'));
         } else {
-            navbar.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'z-50', 'shadow-lg');
+            navbar.classList.remove('fixed', 'top-0', 'left-0', 'w-full', 'z-50');
             frames.forEach(f => f.classList.add('hidden'));
         }
     });

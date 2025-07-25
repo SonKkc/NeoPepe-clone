@@ -4,6 +4,7 @@
 {% block content %}
 <div class="hero-section">
     <div class="hero-section__wrapper">
+        <canvas id="matrix" class="neo-matrix" width="1920" height="1080"></canvas>
         <div class="hero-section__container">
             <div class="hero-section__content">
                 <div class="hero-section__header">
@@ -126,7 +127,7 @@
                                 </label>
                                 <div class="hero-section__input-group-container">
                                     <input id="amountOutput" type="number" class="hero-section__input-group-field"
-                                        value="0" min="0" />
+                                        value="0" min="0" readonly />
                                     <div class="hero-section__input-group-icon">
                                         <img src="{{'images/ethereum.png' | asset_url }}" alt=""
                                             class="w-[20px] h-[20px]" loading="lazy">
@@ -168,7 +169,216 @@
             <div class="circle-shadow-left"></div>
             <div class="circle-shadow-right"></div>
             <div class="circle-1"></div>
+            <div class="svg-animation-dot">
+                <svg width="1485" height="290" viewBox="0 0 1485 290" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+                            <feGaussianBlur stdDeviation="4" result="blur"></feGaussianBlur>
+                            <feMerge>
+                                <feMergeNode in="blur"></feMergeNode>
+                                <feMergeNode in="SourceGraphic"></feMergeNode>
+                            </feMerge>
+                        </filter>
+                    </defs>
+                    <circle cx="24.85" cy="114.07" r="4.5" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="3.5;5.5;3.5" dur="3s" begin="0s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" begin="0s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="337.2" cy="82.07" r="6" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="4.5;7;4.5" dur="3.5s" begin="0.2s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="3.5s" begin="0.2s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="74.32" cy="240.18" r="2" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="1;3;1" dur="2.5s" begin="0.4s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.2;0.8;0.2" dur="2.5s" begin="0.4s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="210.67" cy="270.3" r="5" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="3.5;6.5;3.5" dur="3.2s" begin="0.6s"
+                            repeatCount="indefinite"></animate>
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="3.2s" begin="0.6s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="125.45" cy="40.52" r="3.5" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="2;4.5;2" dur="2.8s" begin="0.8s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.3;0.9;0.3" dur="2.8s" begin="0.8s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="1321.75" cy="24.85" r="4.5" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="3.5;5.5;3.5" dur="3s" begin="1s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.4;1;0.4" dur="3s" begin="1s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="1449.15" cy="109.63" r="6.2" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="4.5;6.8;4.5" dur="3.8s" begin="1.2s"
+                            repeatCount="indefinite"></animate>
+                        <animate attributeName="opacity" values="0.3;1;0.3" dur="3.8s" begin="1.2s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                    <circle cx="1405.6" cy="200.8" r="5.5" fill="#36B100" filter="url(#glow)">
+                        <animate attributeName="r" values="4;6.5;4" dur="3.4s" begin="1.4s" repeatCount="indefinite">
+                        </animate>
+                        <animate attributeName="opacity" values="0.2;1;0.2" dur="3.4s" begin="1.4s"
+                            repeatCount="indefinite"></animate>
+                    </circle>
+                </svg>
+            </div>
+            <div class="circle-2"></div>
+            <div class="coin-animation-1">
+                <div class="circle-container" style="width: 3000px; height: 3000px;" id="coinContainer">
+                    <!-- Coins will be generated by JavaScript -->
+                </div>
+            </div>
+            <div class="coin-animation-2">
+                <div class="circle-container" style="width: 3000px; height: 3000px;" id="coinContainer2">
+                    <!-- Coins will be generated by JavaScript -->
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+<script>
+const canvas = document.getElementById("matrix");
+const ctx = canvas.getContext("2d");
+
+// Resize canvas to fullscreen
+function resizeCanvas() {
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+resizeCanvas();
+
+// Character set
+const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const fontSize = 14;
+const columns = Math.floor(canvas.width / fontSize);
+const speed = 0.3;
+const trailLength = 8;
+
+// Initialize drops and trails
+const drops = Array(columns).fill(0);
+const trails = Array.from({ length: columns }, () => []);
+
+function draw() {
+  // Fade effect background
+  ctx.fillStyle = "rgba(0, 0, 0, 0.07)";
+  ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+  ctx.font = `${fontSize}px monospace`;
+
+  for (let i = 0; i < columns; i++) {
+    const x = i * fontSize;
+    const y = drops[i];
+
+    // Create new character with probability
+    if (Math.random() > 0.4) {
+      const char = letters[Math.floor(Math.random() * letters.length)];
+      trails[i].unshift({ char, y });
+    }
+
+    // Trim trail length
+    if (trails[i].length > trailLength) {
+      trails[i].pop();
+    }
+
+    // Draw trail
+    trails[i].forEach((item, idx) => {
+      const opacity = 1 - idx / trailLength;
+      ctx.fillStyle = `rgba(0, 255, 0, ${opacity.toFixed(2)})`;
+      ctx.fillText(item.char, x, item.y - idx * fontSize);
+    });
+
+    // Increase y position
+    drops[i] += speed * fontSize;
+
+    // Reset drop to top with random chance
+    if (drops[i] > canvas.height && Math.random() > 0.975) {
+      drops[i] = 0;
+      trails[i] = [];
+    }
+  }
+
+  requestAnimationFrame(draw);
+}
+
+draw();
+</script>
+<script>
+// Coin Circle Animation Generator
+document.addEventListener('DOMContentLoaded', function() {
+    const container1 = document.getElementById('coinContainer');
+    const container2 = document.getElementById('coinContainer2');
+
+    // Configuration based on existing CSS
+    const config = {
+        totalCoins: 34,
+        centerX: 1500,    // Center X of the 3000px container
+        centerY: 1500,    // Center Y of the 3000px container
+        radius: 1400,     // Radius of the circle
+        startAngle: 0,    // Starting angle (0 = right side)
+        coinSize: 65      // Coin image size (matches CSS)
+    };
+
+    // Generate coins in a circle for a specific container
+    function generateCoins(container, containerId) {
+        if (!container) return;
+        
+        container.innerHTML = ''; // Clear existing coins
+        
+        // Different images for different animations
+        const coinImages = {
+            'animation-1': '/assets/images/ethereum.png',
+            'animation-2': '/assets/images/coin-pepe.png'  // Different image for animation-2
+        };
+        
+        const coinSrc = coinImages[containerId] || coinImages['animation-1'];
+        
+        for (let i = 0; i < config.totalCoins; i++) {
+            // Calculate angle for this coin (distribute evenly around circle)
+            const angle = config.startAngle + (i * (2 * Math.PI) / config.totalCoins);
+            
+            // Calculate position using trigonometry
+            const x = config.centerX + config.radius * Math.cos(angle);
+            const y = config.centerY + config.radius * Math.sin(angle);
+            
+            // Create coin element
+            const coinSpan = document.createElement('span');
+            coinSpan.className = 'coin-icon-anim';
+            coinSpan.style.cssText = `
+                left: ${x.toFixed(2)}px;
+                top: ${y.toFixed(2)}px;
+                position: absolute;
+                transform: translate(-50%, -50%);
+            `;
+            
+            // Create image element
+            const coinImg = document.createElement('img');
+            coinImg.src = coinSrc;
+            coinImg.alt = `Coin ${i + 1} - ${containerId}`;
+            coinImg.width = config.coinSize;
+            coinImg.height = config.coinSize;
+            coinImg.loading = 'lazy';
+            coinImg.decoding = 'async';
+            coinImg.setAttribute('data-nimg', '1');
+            coinImg.style.color = 'transparent';
+            
+            coinSpan.appendChild(coinImg);
+            container.appendChild(coinSpan);
+        }
+    }
+
+    // Generate coins for both animations
+    generateCoins(container1, 'animation-1');
+    generateCoins(container2, 'animation-2');
+});
+</script>
 {% endblock %}
