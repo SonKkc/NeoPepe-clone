@@ -3,6 +3,23 @@
 .hero-section {
     @apply pt-[8px] relative overflow-hidden max-w-[1920px] mx-auto pb-[120px];
 
+    // Desktop-first approach: từ lớn đến bé
+    @media only screen and (max-width: 1199px) {
+        @apply pb-[80px];
+    }
+
+    @media only screen and (max-width: 991px) {
+        @apply pb-[60px];
+    }
+
+    @media only screen and (max-width: 767px) {
+        @apply pb-[40px];
+    }
+
+    @media only screen and (max-width: 575px) {
+        @apply pt-[20px];
+    }
+
     &::before {
         content: "";
         position: absolute;
@@ -17,6 +34,10 @@
             var(--color-dark) 0,
             rgba(21, 32, 32, 0) 100%
         );
+
+        @media only screen and (max-width: 1199px) {
+            @apply hidden;
+        }
     }
 
     &::after {
@@ -29,10 +50,31 @@
         height: 100%;
         border-radius: 50px;
         background: var(--color-main-bg);
+
+        @media only screen and (max-width: 1199px) {
+            @apply hidden;
+        }
     }
 
     &__wrapper {
         @apply relative z-[3] pt-[65px] rounded-t-[50px];
+
+        // Desktop-first approach: từ lớn đến bé
+        @media only screen and (max-width: 1199px) {
+            @apply rounded-none;
+        }
+
+        @media only screen and (max-width: 991px) {
+            @apply pt-[50px];
+        }
+
+        @media only screen and (max-width: 767px) {
+            @apply pt-[20px];
+        }
+
+        @media only screen and (max-width: 575px) {
+            @apply pt-0;
+        }
 
         &::before {
             content: "";
@@ -48,6 +90,9 @@
                 rgba(0, 3, 4, 0.9),
                 rgba(0, 0, 0, 0)
             );
+            @media only screen and (max-width: 1199px) {
+                @apply w-full rounded-none top-0;
+            }
         }
 
         &::after {
@@ -63,14 +108,18 @@
                 rgba(42, 198, 21, 0.01),
                 rgba(42, 198, 21, 0)
             );
+
+            @media only screen and (max-width: 1199px) {
+                @apply w-full;
+            }
         }
     }
 
     &__container {
         @apply max-w-[1320px] mx-auto w-full z-3 relative;
 
-        @media (max-width: 768px) {
-            @apply px-4;
+        @media only screen and (max-width: 991px) {
+            @apply px-[15px];
         }
     }
 
@@ -133,8 +182,12 @@
     &__presale-widget {
         @apply bg-main-bg border-2 border-dark rounded-[26px] p-[10px] text-center max-w-[555px] mt-[30px] mx-auto relative;
 
-        @media (max-width: 768px) {
-            @apply max-w-full mx-4 rounded-[20px] p-[8px] mt-[24px];
+        @media only screen and (max-width: 575px) {
+            margin-top: 10px;
+            border-width: 1px;
+            text-align: center;
+            border-radius: 14px;
+            padding: 8px;
         }
 
         &::after {
@@ -159,13 +212,24 @@
             #003000 0,
             #001100 100%
         );
+
+        @media only screen and (max-width: 575px) {
+            padding: 36px 24px;
+            border-width: 1px;
+            border-radius: 12px;
+        }
+
+        @media only screen and (max-width: 479px) {
+            padding: 34px 20px;
+        }
     }
 
     &__widget-header {
         @apply absolute top-4 right-4;
 
-        @media (max-width: 768px) {
-            @apply top-3 right-3;
+        @media only screen and (max-width: 575px) {
+            margin-bottom: 4px;
+            font-size: 18px;
         }
     }
 
@@ -188,6 +252,10 @@
     &__price-info {
         @apply flex items-center justify-between mb-[10px] gap-y-[8px] gap-x-[12px];
 
+        @media only screen and (max-width: 575px) {
+            @apply mb-[2px];
+        }
+
         &-current {
             @apply text-[12px] uppercase leading-[26px] mb-0 text-left text-body;
         }
@@ -207,10 +275,30 @@
 
     &__raised-info {
         @apply text-[16px] leading-[26px] mb-0;
+
+        @media only screen and (max-width: 991px) {
+            @apply text-[16px];
+        }
+
+        @media only screen and (max-width: 991px) {
+            @apply text-[16px];
+        }
+
+        @media only screen and (max-width: 767px) {
+            @apply text-[16px] leading-[28px];
+        }
+
+        @media only screen and (max-width: 575px) {
+            @apply text-[14px] leading-[24px];
+        }
     }
 
     &__conversion-rate {
         @apply flex items-center gap-[10px] mt-[16px] mb-[16px];
+
+        @media only screen and (max-width: 575px) {
+            @apply pt-[4px] pb-[6px];
+        }
 
         .left-line {
             &::before {
@@ -254,6 +342,10 @@
 
         span {
             @apply flex-shrink-0 text-[16px] leading-[26px];
+
+            @media only screen and (max-width: 575px) {
+                @apply text-[14px];
+            }
         }
 
         hr {
@@ -263,11 +355,20 @@
 
     &__blockchain-dropdown {
         @apply mb-[20px] w-full relative;
+        @media only screen and (max-width: 575px) {
+            @apply mb-[12px];
+        }
     }
 
     &__dropdown-btn {
         @apply whitespace-nowrap w-full text-white cursor-pointer flex items-center justify-center gap-2 py-[15px] px-[30px] rounded-lg border-2 border-white/10;
         background-color: rgba(200, 233, 219, 0.1);
+
+        @media only screen and (max-width: 575px) {
+            padding: 10px 20px;
+            font-size: 14px;
+            border-width: 1px;
+        }
 
         &::after {
             content: "";
@@ -279,12 +380,18 @@
 
     &__token-buttons {
         @apply flex items-center gap-y-[16px] gap-x-[20px] mb-[18px];
+        @media only screen and (max-width: 575px) {
+            @apply gap-y-[16px] gap-x-[10px] mb-[6px];
+        }
     }
 
     &__token-btn {
         @apply flex items-center justify-center gap-2 py-[15px] px-[30px] rounded-lg border-2 border-white/10 w-full;
         background-color: rgba(200, 233, 219, 0.1);
 
+        @media only screen and (max-width: 575px) {
+            @apply py-[8px] px-[16px] border;
+        }
         &.active {
             border-color: var(--color-primary);
             background: radial-gradient(
@@ -305,6 +412,9 @@
 
     &__input-section {
         @apply flex items-center gap-y-[16px] gap-x-[20px] mb-[26px];
+        @media only screen and (max-width: 575px) {
+            @apply gap-[6px] mb-[14px];
+        }
     }
 
     &__input-group {
@@ -330,10 +440,18 @@
             -moz-appearance: textfield;
             background-color: rgba(21, 32, 32, 0.329);
             box-shadow: var(--shadow-10);
+
+            @media only screen and (max-width: 575px) {
+                @apply border;
+            }
         }
 
         &-icon {
             @apply flex gap-1 items-center absolute right-4 top-1/2 -translate-y-1/2;
+
+            @media only screen and (max-width: 575px) {
+                @apply w-auto right-[8px];
+            }
 
             .btn-primary {
                 @apply px-3 py-[6px] text-[10px];
@@ -344,16 +462,32 @@
     &__connect-wallet-btn {
         @apply bg-primary text-main-bg font-departure rounded-xl w-full flex justify-center py-[18px] px-6 border-0 items-center gap-2 font-black uppercase relative;
         transition: var(--transition-3);
+
+        @media only screen and (max-width: 575px) {
+            @apply py-[11px] px-[20px] rounded-[6px];
+
+            .coded-text {
+                @apply text-[14px];
+            }
+        }
     }
 
     &__buy-card-btn {
         @apply mt-[20px] bg-heading hover:bg-primary text-main-bg rounded-xl w-full flex justify-center py-[18px] px-6 border-0 items-center gap-2 text-base font-bold uppercase relative;
         transition: var(--transition-3);
+
+        @media only screen and (max-width: 575px) {
+            @apply py-[11px] px-[20px] rounded-[6px];
+        }
     }
 
     &__footer-note {
         @apply text-sm font-bold opacity-80 inline-flex mt-5 hover:text-primary;
         transition: var(--transition-1);
+
+        @media only screen and (max-width: 575px) {
+            @apply mt-[12px] text-[12px] font-medium;
+        }
 
         img {
             @apply w-[16px] h-[16px] me-[8px];
@@ -400,6 +534,10 @@
                 rgba(0, 3, 4, 0) 0,
                 var(--color-main-bg) 80%
             );
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         .circle-shadow-right {
@@ -409,6 +547,10 @@
                 rgba(0, 3, 4, 0) 0,
                 var(--color-main-bg) 80%
             );
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         .circle-1 {
@@ -426,12 +568,20 @@
                 );
             background-origin: border-box;
             background-clip: content-box, border-box;
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         .circle-2 {
             @apply absolute w-[2047px] h-[1616px] rounded-full left-1/2 -translate-x-1/2 bottom-[-1185px] opacity-50;
             background: var(--color-primary);
             filter: blur(50px);
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         .svg-animation-dot {
@@ -454,6 +604,10 @@
             transform: translateX(-50%);
             -webkit-clip-path: polygon(0 0, 46% 0, 46% 100%, 0 100%);
             clip-path: polygon(0 0, 46% 0, 46% 100%, 0 100%);
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         .coin-animation-2 {
@@ -462,6 +616,10 @@
             transform: translateX(-50%);
             -webkit-clip-path: polygon(51% 0, 100% 0, 100% 100%, 51% 100%);
             clip-path: polygon(51% 0, 100% 0, 100% 100%, 51% 100%);
+
+            @media only screen and (max-width: 767px) {
+                @apply hidden;
+            }
         }
 
         @keyframes rotation {
@@ -485,15 +643,12 @@
     }
 
     .neo-matrix {
-        position: absolute;
-        top: 2px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: -1;
+        @apply top-[5px] translate-x-[-50%] absolute left-1/2 -z-10 w-full h-full block max-w-full;
         width: calc(100% - 104px);
-        height: 100%;
         border-radius: 50px 50px 0 0;
-        display: block;
-        max-width: 100%;
+
+        @media only screen and (max-width: 1199px) {
+            @apply top-0 w-full rounded-none;
+        }
     }
 }
