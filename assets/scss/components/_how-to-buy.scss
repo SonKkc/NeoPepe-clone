@@ -1,0 +1,99 @@
+.neo-how-to-buy {
+    @apply relative overflow-hidden pb-[150px] pt-[120px];
+
+    .top-content {
+        @apply flex flex-wrap mb-[60px];
+
+        @media only screen and (max-width: 575px) {
+            @apply mb-[40px];
+        }
+    }
+
+    .neo-step-card {
+        @apply border-[3px] border-dark rounded-[16px];
+        background: linear-gradient(166.42deg, #152020, #070707 90.27%);
+        transition: var(--transition-1);
+
+        &.active {
+            @apply border-primary;
+
+            .card-top {
+                @apply border-primary;
+
+                .dot span {
+                    @apply bg-primary;
+                }
+            }
+        }
+
+        .card-top {
+            @apply flex items-center justify-between border-b-[3px] border-dark;
+            padding: 10px 18px;
+            transition: var(--transition-1);
+
+            .dot {
+                @apply flex items-center gap-[10px];
+
+                span {
+                    @apply w-2 h-2 rounded-full;
+                    background: #014a0c;
+                    transition: var(--transition-1);
+
+                    &:nth-child(2) {
+                        transition-delay: 0.2s;
+                    }
+
+                    &:nth-child(3) {
+                        transition-delay: 0.4s;
+                    }
+                }
+            }
+        }
+
+        .card-bottom.card-bottom-1 {
+            @apply mb-[-25px];
+        }
+
+        .card-bottom.card-bottom-2 {
+            @apply flex justify-center mt-[-70px];
+        }
+
+        .card-body {
+            @apply px-[38px] pt-[34px] pb-[28px];
+
+            .card-title {
+                color: var(--color-primary);
+                font-family: var(--font-secondary);
+                font-weight: 400;
+                margin-bottom: 20px;
+            }
+
+            .card-des {
+                color: var(--color-forest-green);
+                margin-bottom: 20px;
+            }
+
+            .feature-item {
+                padding-left: 22px;
+                position: relative;
+                margin-top: 16px;
+
+                &::after {
+                    content: "";
+                    @apply absolute left-0 top-0 w-[10px] h-5;
+                    background: url(/assets/svg/title-arrow.svg);
+                }
+
+                .feature-title {
+                    color: var(--color-primary);
+                    margin-bottom: 8px;
+                }
+
+                .feature-dec {
+                    font-size: 16px;
+                    line-height: 24px;
+                }
+            }
+        }
+    }
+}
