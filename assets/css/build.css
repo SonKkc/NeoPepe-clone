@@ -50,6 +50,14 @@ p {
   @apply text-[18px] leading-[1.55];
 }
 
+img {
+  -ms-interpolation-mode: bicubic;
+  border: 0;
+  vertical-align: middle;
+  max-width: 100%;
+  height: auto;
+}
+
 .btn-primary {
   @apply px-6 py-4 text-[10px] cursor-pointer bg-primary border-0 flex items-center gap-2 text-main-bg font-black rounded-lg uppercase relative;
   transition: var(--transition-3);
@@ -1178,6 +1186,94 @@ p {
 .about-section .neo-about-content .contract .img-wrap {
   @apply flex items-center flex-wrap;
   gap: 12px 34px;
+}
+
+.neo-brand-area {
+  @apply pt-[60px] overflow-hidden;
+}
+.neo-brand-area .neo-brand-main-wrap {
+  @apply relative overflow-hidden;
+}
+.neo-brand-area .neo-brand-main-wrap::before {
+  @apply select-none;
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 215px;
+  height: 100%;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0) 0, var(--color-main-bg) 100%);
+  z-index: 2;
+}
+.neo-brand-area .neo-brand-main-wrap::after {
+  @apply select-none;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 215px;
+  height: 100%;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 0) 0, var(--color-main-bg) 100%);
+  z-index: 2;
+}
+.neo-brand-area .rfm-marquee-container {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  width: var(--width);
+  transform: var(--transform);
+}
+.neo-brand-area .rfm-marquee-container:hover div {
+  animation-play-state: var(--pause-on-hover);
+}
+.neo-brand-area .rfm-marquee-container .rfm-marquee {
+  flex: 0 0 auto;
+  min-width: var(--min-width);
+  z-index: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  animation: scroll var(--duration) linear var(--delay) var(--iteration-count);
+  animation-play-state: var(--play);
+  animation-delay: var(--delay);
+  animation-direction: var(--direction);
+}
+.neo-brand-area .rfm-marquee-container .rfm-initial-child-container {
+  flex: 0 0 auto;
+  display: flex;
+  min-width: auto;
+  flex-direction: row;
+  align-items: center;
+}
+.neo-brand-area .rfm-marquee-container .rfm-child {
+  transform: var(--transform);
+}
+.neo-brand-area .rfm-marquee-container .neo-brand-wrap {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin-right: 30px;
+}
+.neo-brand-area .rfm-marquee-container .neo-brand-item {
+  opacity: 0.65;
+  flex: 0 0 auto;
+  transition: var(--transition-1);
+}
+.neo-brand-area .rfm-marquee-container .neo-brand-item img {
+  max-height: 35px;
+  object-fit: contain;
+}
+.neo-brand-area .rfm-marquee-container .neo-brand-item:hover {
+  opacity: 1;
+}
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-1 * var(--width)));
+  }
 }
 
 .CodedText {

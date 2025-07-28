@@ -1,6 +1,6 @@
-const letters = "!@#$%^&*()_+[]{}|;:',.<>/?1234567890";
+const lters = "!@#$%^&*()_+[]{}|;:',.<>/?1234567890";
 function randomChar() {
-    return letters[Math.floor(Math.random() * letters.length)];
+    return lters[Math.floor(Math.random() * lters.length)];
 }
 
 function animateText(element, finalText, duration = 0.8, fps = 30) {
