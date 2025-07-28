@@ -13,6 +13,26 @@ h6 {
   word-break: break-word;
 }
 
+h1 {
+  @apply text-[48px];
+}
+
+h2 {
+  @apply text-[40px];
+}
+
+h3 {
+  @apply text-[36px];
+}
+
+h4 {
+  @apply text-[24px];
+}
+
+h5 {
+  @apply text-[20px] leading-[1.2];
+}
+
 h6 {
   @apply text-[18px] leading-[1.25];
 }
@@ -24,6 +44,10 @@ hr {
 
 button {
   @apply cursor-pointer;
+}
+
+p {
+  @apply text-[18px] leading-[1.55];
 }
 
 .btn-primary {
@@ -59,6 +83,21 @@ button {
   .my__container {
     max-width: 1320px;
   }
+}
+
+.neo-section-title {
+  @apply text-[48px] leading-[1] mb-[24px] font-medium;
+}
+.neo-section-title .font-secondary {
+  @apply font-normal font-departure;
+}
+.neo-section-title .text-gradient {
+  background: linear-gradient(180deg, var(--color-forest-green) 28.88%, var(--color-primary) 117.24%);
+  -webkit-text-fill-color: rgba(0, 0, 0, 0);
+  text-fill-color: rgba(0, 0, 0, 0);
+  text-shadow: 5px 4px 15px rgba(161, 255, 120, 0.2);
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 .footer {
@@ -1076,6 +1115,69 @@ button {
   .about-section__wrap {
     @apply p-[50px];
   }
+}
+.about-section__wrap::before {
+  content: "";
+  @apply absolute left-0 top-0 w-full h-full -z-10 rounded-[16px];
+  background: url(/assets/images/about-bg.png);
+  background-size: cover;
+  background-position: 50%;
+}
+.about-section__glow {
+  @apply absolute right-0 w-[111px] h-[631px] -z-10 rounded-[41px];
+  background: radial-gradient(40.36% 40.36% at 42.09% 33.24%, rgba(42, 198, 21, 0.5) 0, rgba(0, 3, 4, 0.5) 100%);
+  filter: blur(75px);
+  transform: matrix(0.68, -0.73, -0.73, -0.68, 0, 0);
+}
+.about-section__flex {
+  @apply flex flex-wrap items-center;
+}
+.about-section__column {
+  @apply w-full max-w-full px-[12px] shrink-0 relative;
+}
+@media (min-width: 1200px) {
+  .about-section__column {
+    @apply flex-none w-1/2;
+  }
+}
+.about-section__column--right {
+  @apply hidden;
+}
+@media (min-width: 1200px) {
+  .about-section__column--right {
+    @apply block;
+  }
+}
+.about-section__column--right .neo-about-img {
+  @apply mb-[-100px];
+}
+.about-section .neo-about-content .feature-title {
+  @apply text-primary;
+}
+.about-section .neo-about-content .features {
+  @apply grid grid-cols-2 gap-y-5 gap-x-6;
+}
+.about-section .neo-about-content .features .feature-item {
+  @apply ps-[22px] relative;
+}
+.about-section .neo-about-content .features .feature-item::after {
+  content: "";
+  @apply absolute left-0 top-0 w-[10px] h-5;
+  background: url(/assets/svg/title-arrow.svg);
+}
+.about-section .neo-about-content .features .feature-item .disc {
+  @apply text-[14px] leading-[22px];
+}
+.about-section .neo-about-content .contract {
+  @apply mt-[65px];
+}
+.about-section .neo-about-content .contract .title {
+  @apply text-base leading-6 font-bold mb-6;
+  color: var(--color-body-shade);
+}
+.about-section .neo-about-content .contract .img-wrap {
+  @apply flex items-center flex-wrap;
+  gap: 12px 34px;
 }
 
 .CodedText {

@@ -13,6 +13,26 @@ h6 {
     word-break: break-word;
 }
 
+h1{
+    @apply text-[48px];
+}
+
+h2{
+    @apply text-[40px];
+}
+
+h3{
+    @apply text-[36px];
+}
+
+h4{
+    @apply text-[24px];
+}
+
+h5{
+    @apply text-[20px] leading-[1.2];
+}
+
 h6 {
     @apply text-[18px] leading-[1.25];
 }
@@ -22,36 +42,61 @@ hr {
     background-size: 4px 4px;
 }
 
-button{
+button {
     @apply cursor-pointer;
 }
 
-.btn-primary{
+p{
+    @apply text-[18px] leading-[1.55];
+}
+
+.btn-primary {
     @apply px-6 py-4 text-[10px] cursor-pointer bg-primary border-0 flex items-center gap-2 text-main-bg font-black rounded-lg uppercase relative;
     transition: var(--transition-3);
 }
 
-.my__container{
+.my__container {
     @apply w-full px-3 mx-auto;
-    
+
     /* Responsive max-widths using standard Tailwind breakpoints */
     @media (min-width: 640px) {
         max-width: 640px;
     }
-    
+
     @media (min-width: 768px) {
         max-width: 768px;
     }
-    
+
     @media (min-width: 1024px) {
         max-width: 1024px;
     }
-    
+
     @media (min-width: 1280px) {
         max-width: 1280px;
     }
-    
+
     @media (min-width: 1400px) {
         max-width: 1320px;
+    }
+}
+
+.neo-section-title {
+    @apply text-[48px] leading-[1] mb-[24px] font-medium;
+
+    .font-secondary {
+        @apply font-normal font-departure;
+    }
+
+    .text-gradient {
+        background: linear-gradient(
+            180deg,
+            var(--color-forest-green) 28.88%,
+            var(--color-primary) 117.24%
+        );
+        -webkit-text-fill-color: rgba(0, 0, 0, 0);
+        text-fill-color: rgba(0, 0, 0, 0);
+        text-shadow: 5px 4px 15px rgba(161, 255, 120, 0.2);
+        -webkit-background-clip: text;
+        background-clip: text;
     }
 }
