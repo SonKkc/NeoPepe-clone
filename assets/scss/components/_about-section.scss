@@ -1,0 +1,19 @@
+.about-section{
+    @apply overflow-hidden;
+
+    &__container{
+
+    }
+
+    &__wrap{
+        @apply rounded-[16px] relative pt-[80px] pe-[50px] pb-[70px] ps-[100px] border border-dark;
+
+        @media only screen and (max-width: 575px) {
+            @apply py-[36px] px-[24px];
+        }
+
+        @media only screen and (max-width: 1399px) {
+            @apply p-[50px];
+        }
+    }
+}

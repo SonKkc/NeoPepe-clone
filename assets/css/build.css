@@ -31,6 +31,36 @@ button {
   transition: var(--transition-3);
 }
 
+.my__container {
+  @apply w-full px-3 mx-auto;
+  /* Responsive max-widths using standard Tailwind breakpoints */
+}
+@media (min-width: 640px) {
+  .my__container {
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px) {
+  .my__container {
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px) {
+  .my__container {
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px) {
+  .my__container {
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1400px) {
+  .my__container {
+    max-width: 1320px;
+  }
+}
+
 .footer {
   @apply bg-black text-white pt-[50px];
 }
@@ -1028,6 +1058,23 @@ button {
 @media only screen and (max-width: 1199px) {
   .hero-section .neo-matrix {
     @apply top-0 w-full rounded-none;
+  }
+}
+
+.about-section {
+  @apply overflow-hidden;
+}
+.about-section__wrap {
+  @apply rounded-[16px] relative pt-[80px] pe-[50px] pb-[70px] ps-[100px] border border-dark;
+}
+@media only screen and (max-width: 575px) {
+  .about-section__wrap {
+    @apply py-[36px] px-[24px];
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .about-section__wrap {
+    @apply p-[50px];
   }
 }
 

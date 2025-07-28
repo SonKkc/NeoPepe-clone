@@ -30,3 +30,28 @@ button{
     @apply px-6 py-4 text-[10px] cursor-pointer bg-primary border-0 flex items-center gap-2 text-main-bg font-black rounded-lg uppercase relative;
     transition: var(--transition-3);
 }
+
+.my__container{
+    @apply w-full px-3 mx-auto;
+    
+    /* Responsive max-widths using standard Tailwind breakpoints */
+    @media (min-width: 640px) {
+        max-width: 640px;
+    }
+    
+    @media (min-width: 768px) {
+        max-width: 768px;
+    }
+    
+    @media (min-width: 1024px) {
+        max-width: 1024px;
+    }
+    
+    @media (min-width: 1280px) {
+        max-width: 1280px;
+    }
+    
+    @media (min-width: 1400px) {
+        max-width: 1320px;
+    }
+}
