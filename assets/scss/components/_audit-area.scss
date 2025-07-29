@@ -1,0 +1,111 @@
+.neo-audit-area {
+    @apply relative overflow-hidden z-[2];
+
+    .neo-section-title {
+        @apply text-5xl leading-none mb-6 font-medium;
+    }
+
+    .neo-audit-wrap {
+        @apply grid grid-cols-10 gap-0 mt-[60px] relative;
+
+        @media only screen and (max-width: 991px) {
+            @apply mt-[40px] flex flex-wrap gap-[30px] items-stretch;
+        }
+        @media only screen and (max-width: 767px) {
+            @apply flex-col items-center;
+        }
+    }
+
+    .neo-audit-item {
+        @apply border border-[rgba(200,233,219,0.05)] min-h-[132px] h-full;
+        background-color: #0b1313;
+
+        @media only screen and (max-width: 991px) {
+            @apply hidden;
+        }
+
+        &:first-child {
+            @apply rounded-tl-[16px];
+        }
+
+        &.icon {
+            @apply flex items-center justify-center;
+            background: linear-gradient(
+                166deg,
+                var(--color-dark) 0,
+                var(--color-main-bg) 90%
+            );
+
+            @media only screen and (max-width: 991px) {
+                @apply hidden;
+            }
+
+            img {
+                @apply transition-all duration-[600ms] ease-linear scale-0;
+            }
+
+            &.active {
+                img {
+                    @apply scale-100;
+                }
+            }
+        }
+
+        &.card {
+            @apply rounded-none col-span-2 row-span-2 h-auto border-b border-black flex flex-col justify-center;
+            background: linear-gradient(
+                1turn,
+                var(--color-main-bg) 0,
+                var(--color-primary) 100%
+            );
+            padding: 10px 25px;
+
+            @media only screen and (max-width: 991px) {
+                @apply max-w-[300px] p-[30px_24px];
+            }
+
+            @media only screen and (max-width: 991px) and (max-width: 479px) {
+                @apply max-w-full rounded-lg;
+            }
+
+            .card-title {
+                @apply text-forest-green font-bold mt-5 leading-7 mb-3;
+            }
+
+            .card-dec {
+                @apply text-sm leading-[22px] text-body font-medium mb-0;
+            }
+        }
+
+        &.link {
+            @apply flex items-center justify-center;
+
+            @media only screen and (max-width: 991px) {
+                @apply w-[132px] self-center;
+            }
+
+            @media only screen and (max-width: 575px) {
+                @apply w-[60px] h-[60px] min-h-[60px];
+            }
+
+            svg{
+                @media only screen and (max-width: 575px) {
+                    @apply max-w-[20px];
+                }
+            }
+        }
+
+        &.variant-02 {
+            background: linear-gradient(
+                166deg,
+                var(--color-dark) 0,
+                var(--color-main-bg) 90%
+            );
+            border-top-color: rgba(200, 233, 219, 0.15);
+        }
+
+        &.card-var-02 {
+            @apply row-span-3;
+        }
+    }
+}
