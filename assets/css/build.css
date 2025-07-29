@@ -14,7 +14,7 @@ h6 {
 }
 
 h1 {
-  @apply text-[48px];
+  @apply text-[48px] leading-[1.19];
 }
 
 h2 {
@@ -56,6 +56,12 @@ img {
   vertical-align: middle;
   max-width: 100%;
   height: auto;
+}
+
+menu, ol, ul {
+  margin: 16px 0;
+  padding: 0 0 0 40px;
+  padding-left: 40px;
 }
 
 .btn-primary {
@@ -2574,6 +2580,354 @@ img {
 }
 .neo-audit-area .neo-audit-item.card-var-02 {
   @apply row-span-3;
+}
+
+.neo-tokenomics-area {
+  @apply relative pt-[412px] overflow-hidden -mt-[265px];
+}
+.neo-tokenomics-area::before {
+  @apply content-[""] absolute top-0 left-1/2 -translate-x-1/2 h-full rounded-t-[50px];
+  width: calc(100% - 98px);
+  background: linear-gradient(180deg, var(--color-dark) 0, rgba(21, 32, 32, 0) 100%);
+}
+.neo-tokenomics-area::after {
+  @apply content-[""] absolute top-[2px] left-1/2 -translate-x-1/2 h-full rounded-t-[50px];
+  width: calc(100% - 100px);
+  background: var(--color-main-bg);
+}
+.neo-tokenomics-area .token-bg {
+  @apply absolute left-1/2 -translate-x-1/2 top-[2px] max-w-[1803px] object-cover rounded-t-[50px] z-[1];
+  width: calc(100% - 100px);
+}
+.neo-tokenomics-area .neo-tokenomics-wrap {
+  @apply relative z-[2] rounded-t-[50px] mx-auto;
+}
+.neo-tokenomics-area .neo-index-upper-3 {
+  @apply relative z-[2];
+}
+.neo-tokenomics-area .neo-tokenomics-box {
+  @apply rounded-[16px] mt-[60px] relative z-[3];
+  background: rgba(21, 32, 32, 0.7);
+  border: 1px solid rgba(200, 233, 219, 0.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  padding: 46px 30px 0 84px;
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box {
+    @apply mt-[40px];
+  }
+}
+@media only screen and (max-width: 1399px) {
+  .neo-tokenomics-area .neo-tokenomics-box {
+    @apply p-[40px_40px_0];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .subtitle {
+  @apply font-bold text-forest-green mb-4;
+}
+.neo-tokenomics-area .neo-tokenomics-box .title {
+  @apply text-primary font-normal uppercase mb-9;
+  font-family: var(--font-secondary);
+}
+.neo-tokenomics-area .neo-tokenomics-box .list {
+  @apply m-0 pl-0 list-none;
+}
+.neo-tokenomics-area .neo-tokenomics-box .list li {
+  @apply text-lg leading-6 text-body font-medium m-0 mb-[10px] pl-[22px] relative;
+}
+.neo-tokenomics-area .neo-tokenomics-box .list li::after {
+  @apply content-[""] absolute left-0 top-0 w-[10px] h-5;
+  background: url(/assets/svg/title-arrow.svg);
+}
+.neo-tokenomics-area .neo-tokenomics-box .coin-code {
+  @apply flex items-start;
+}
+@media (min-width: 992px) {
+  .neo-tokenomics-area .neo-tokenomics-box .coin-code {
+    @apply justify-end;
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-clip-box {
+  @apply rounded-lg h-[78px] flex items-center justify-between overflow-hidden;
+  background: linear-gradient(141.89deg, #152020, #000304 136.24%);
+  border: 1px solid hsla(0, 0%, 100%, 0.1);
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-clip-box {
+    @apply mt-[40px];
+  }
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-clip-box {
+    @apply h-[60px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-clip-box .clip-text {
+  @apply inline-block max-w-full whitespace-nowrap overflow-hidden text-ellipsis text-base text-primary;
+  padding: 15px 30px;
+  font-family: var(--font-secondary);
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-clip-box .clip-btn {
+  @apply border-0 h-full w-[76px] text-primary flex-shrink-0 relative cursor-pointer;
+  background: var(--color-dark);
+  border-left-width: 0px;
+  border-left-style: none;
+  border-left-color: currentcolor;
+  border-left: 1px solid var(--color-dark);
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-clip-box .clip-btn svg {
+  @apply w-[18px] h-[18px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart {
+  @apply grid grid-cols-6 gap-6 max-w-[1056px] items-end -mt-5 relative;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart {
+    @apply overflow-x-scroll mt-[30px];
+  }
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart {
+    @apply mt-[30px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart.active .chart-item {
+  @apply h-full;
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap {
+  @apply flex items-end relative;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap {
+    @apply min-w-[70px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap {
+    @apply min-w-[50px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:first-child {
+  @apply h-[210px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:first-child .chart-item::after {
+  left: -11.5px;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:first-child {
+    @apply h-[130px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:first-child {
+    @apply h-[80px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(2) {
+  @apply h-[330px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(2) .chart-item::after {
+  left: -11.5px;
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(2) .chart-item::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  right: -11.5px;
+  bottom: 0;
+  border-right: 1px dashed hsla(0, 0%, 100%, 0.1);
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(2) {
+    @apply h-[220px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(2) {
+    @apply h-[130px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(3) {
+  @apply h-[130px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(3) .chart-item::after {
+  @apply hidden;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(3) {
+    @apply h-[80px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(3) {
+    @apply h-[50px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(4) {
+  @apply h-[505px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(4) .chart-item::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: -11.5px;
+  bottom: 0;
+  border-right: 1px dashed hsla(0, 0%, 100%, 0.1);
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(4) .chart-item {
+  transition-delay: 0.6s;
+  background: linear-gradient(180deg, rgba(42, 198, 21, 0.2), rgba(200, 233, 219, 0));
+  border-color: var(--color-primary);
+  transition-duration: 1.2s;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(4) {
+    @apply h-[350px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(4) {
+    @apply h-[170px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(5) {
+  @apply h-[130px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(5) .chart-item::after {
+  @apply hidden;
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(5) {
+    @apply h-[80px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(5) {
+    @apply h-[50px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(6) {
+  @apply h-[210px];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(6) .chart-item::before {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 100%;
+  left: -11.5px;
+  bottom: 0;
+  border-right: 1px dashed hsla(0, 0%, 100%, 0.1);
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(6) {
+    @apply h-[130px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item-wrap:nth-child(6) {
+    @apply h-[80px];
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item {
+  @apply flex flex-col justify-between items-center border-t-[5px] border-[#1c2b2b] h-[90px] flex-grow relative;
+  background: linear-gradient(166.42deg, var(--color-dark) 0, var(--color-main-bg) 90.27%);
+  padding: 12px 6px 16px;
+  transition: all 0.6s cubic-bezier(0.65, 0, 0.35, 1);
+  transform-origin: bottom;
+}
+@media only screen and (max-width: 1199px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item {
+    @apply h-[80px];
+  }
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item {
+    @apply h-[64px];
+  }
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item {
+    @apply h-[56px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item {
+    @apply h-[48px] border-t-[3px];
+    padding: 6px 1px;
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item::after {
+  @apply content-[""] absolute w-px h-full -right-[11.5px] bottom-0 border-r border-dashed border-[hsla(0,0%,100%,0.1)];
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item.active .pepe {
+  @apply opacity-100 -translate-y-full;
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .pepe {
+  @apply absolute -z-[1] -top-[10px] opacity-0 transition-all duration-[600ms] ease-linear max-w-[115px];
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .pepe {
+    @apply hidden;
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .number {
+  @apply text-5xl text-forest-green;
+  font-family: var(--font-secondary);
+}
+@media only screen and (max-width: 1199px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .number {
+    @apply text-4xl;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .number {
+    @apply text-3xl;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .number {
+    @apply text-2xl;
+  }
+}
+@media only screen and (max-width: 479px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .number {
+    @apply text-sm;
+  }
+}
+.neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .chart-title {
+  @apply text-base font-medium text-body-shade leading-6 mb-0 flex;
+}
+@media only screen and (max-width: 991px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .chart-title {
+    @apply text-[10px];
+  }
+}
+@media only screen and (max-width: 767px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .chart-title {
+    @apply text-[8px] leading-[8px];
+  }
+}
+@media only screen and (max-width: 575px) {
+  .neo-tokenomics-area .neo-tokenomics-box .neo-tokenomics-chart .chart-item .chart-title {
+    @apply text-[6px] leading-[8px];
+  }
+}
+.neo-tokenomics-area .circle-1 {
+  @apply absolute left-1/2 -translate-x-1/2 -bottom-[1550px] border-4 border-transparent rounded-full z-[2];
+  width: 2726px;
+  height: 2152px;
+  background-image: linear-gradient(var(--color-main-bg), var(--color-main-bg)), linear-gradient(270deg, rgba(42, 198, 21, 0) 17%, var(--color-primary) 50%, rgba(42, 198, 21, 0) 83%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+}
+.neo-tokenomics-area .circle-2 {
+  @apply absolute left-1/2 -translate-x-1/2 -bottom-[1005px] rounded-full opacity-50 blur-[50px];
+  width: 2047px;
+  height: 1616px;
+  background: var(--color-primary);
 }
 
 .CodedText {
