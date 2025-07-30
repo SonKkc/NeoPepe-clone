@@ -26,7 +26,7 @@ h3 {
 }
 
 h4 {
-    @apply text-[24px];
+    @apply text-[24px] leading-[1.25];
 }
 
 h5 {
@@ -58,15 +58,84 @@ img {
     height: auto;
 }
 
+
+
 menu, ol, ul {
   margin: 16px 0;
   padding: 0 0 0 40px;
     padding-left: 40px;
 }
 
+.b1 {
+    font-size: var(--font-size-b1);
+    line-height: var(--line-height-b1)
+}
+
+@media only screen and (max-width: 767px) {
+    .b1 {
+        font-size:16px;
+        line-height: 28px
+    }
+}
+
+.b2 {
+    font-size: var(--font-size-b2);
+    line-height: var(--line-height-b2)
+}
+
+@media only screen and (max-width: 767px) {
+    .b2 {
+        font-size:16px;
+        line-height: 28px
+    }
+}
+
+.b3 {
+    font-size: var(--font-size-b3);
+    line-height: var(--line-height-b3)
+}
+
+@media only screen and (max-width: 767px) {
+    .b3 {
+        font-size:16px;
+        line-height: 28px
+    }
+}
+
+.b4 {
+    font-size: var(--font-size-b4);
+    line-height: var(--line-height-b4)
+}
+
+@media only screen and (max-width: 767px) {
+    .b4 {
+        font-size:16px;
+        line-height: 28px
+    }
+}
+
+
 .btn-primary {
     @apply px-6 py-4 text-[10px] cursor-pointer bg-primary border-0 flex items-center gap-2 text-main-bg font-black rounded-lg uppercase relative;
     transition: var(--transition-3);
+}
+
+.neo-progress-bar {
+    width: 100%;
+    height: 15px;
+    background: url(/assets/svg/progress-opacity.svg);
+    background-repeat: repeat-x;
+    position: relative;
+    margin-bottom: 10px
+}
+
+.neo-progress-bar .progress-item {
+    position: absolute;
+    height: 15px;
+    background: url(/assets/svg/progress.svg);
+    background-repeat: repeat-x;
+    -webkit-clip-path: polygon(0 0,100% 0,98.5% 100%,0 100%);
+    clip-path: polygon(0 0,100% 0,98.5% 100%,0 100%)
 }
 
 .my__container {

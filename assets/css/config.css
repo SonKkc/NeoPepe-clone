@@ -12,6 +12,15 @@
     --transition-1: all 0.3s ease-in-out;
 
     --font-secondary: "DepartureMono", sans-serif;
+
+    --font-size-b1: 24px;
+    --font-size-b2: 18px;
+    --font-size-b3: 16px;
+    --font-size-b4: 12px;
+    --line-height-b1: 1.5;
+    --line-height-b2: 1.67;
+    --line-height-b3: 1.67;
+    --line-height-b4: 1.4;
 }
 
 @font-face {
